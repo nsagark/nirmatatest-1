@@ -1,0 +1,151 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  annotations:
+    kyverno.io/createdBy: 'system:node:nirmata-testcluster-hostgroup-69252'
+    policies.kyverno.io/patches: >
+      add-user-data.add-annotations.kyverno.io: replaced
+      /metadata/annotations/kyverno.io~1createdBy
+  creationTimestamp: '2021-09-02T21:56:25Z'
+  labels:
+    run: nginx3
+  managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:labels':
+            .: {}
+            'f:run': {}
+        'f:spec':
+          'f:containers':
+            'k:{"name":"nginx3"}':
+              .: {}
+              'f:image': {}
+              'f:imagePullPolicy': {}
+              'f:name': {}
+              'f:resources': {}
+              'f:terminationMessagePath': {}
+              'f:terminationMessagePolicy': {}
+          'f:dnsPolicy': {}
+          'f:enableServiceLinks': {}
+          'f:restartPolicy': {}
+          'f:schedulerName': {}
+          'f:securityContext': {}
+          'f:terminationGracePeriodSeconds': {}
+      manager: kubectl-run
+      operation: Update
+      time: '2021-09-02T21:56:25Z'
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:status':
+          'f:conditions':
+            'k:{"type":"ContainersReady"}':
+              .: {}
+              'f:lastProbeTime': {}
+              'f:lastTransitionTime': {}
+              'f:status': {}
+              'f:type': {}
+            'k:{"type":"Initialized"}':
+              .: {}
+              'f:lastProbeTime': {}
+              'f:lastTransitionTime': {}
+              'f:status': {}
+              'f:type': {}
+            'k:{"type":"Ready"}':
+              .: {}
+              'f:lastProbeTime': {}
+              'f:lastTransitionTime': {}
+              'f:status': {}
+              'f:type': {}
+          'f:containerStatuses': {}
+          'f:hostIP': {}
+          'f:phase': {}
+          'f:podIP': {}
+          'f:podIPs':
+            .: {}
+            'k:{"ip":"10.244.1.7"}':
+              .: {}
+              'f:ip': {}
+          'f:startTime': {}
+      manager: kubelet
+      operation: Update
+      time: '2021-09-02T21:56:45Z'
+  name: nginx3
+  namespace: default
+  resourceVersion: '157523'
+  selfLink: /api/v1/namespaces/default/pods/nginx3
+  uid: a77ca467-b4d1-4c41-b12e-f43b05be1422
+spec:
+  containers:
+    - image: 'ghcr.io/nirmata/nginx:latest'
+      imagePullPolicy: Always
+      name: nginx4
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+        - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+          name: default-token-gfbf9
+          readOnly: true
+  dnsPolicy: ClusterFirst
+  enableServiceLinks: true
+  nodeName: nirmata-testcluster-hostgroup-69252
+  preemptionPolicy: PreemptLowerPriority
+  priority: 0
+  restartPolicy: Always
+  schedulerName: default-scheduler
+  securityContext: {}
+  serviceAccount: default
+  serviceAccountName: default
+  terminationGracePeriodSeconds: 30
+  tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+  volumes:
+    - name: default-token-gfbf9
+      secret:
+        defaultMode: 420
+        secretName: default-token-gfbf9
+status:
+  conditions:
+    - lastTransitionTime: '2021-09-02T21:56:25Z'
+      status: 'True'
+      type: Initialized
+    - lastTransitionTime: '2021-09-02T21:56:45Z'
+      status: 'True'
+      type: Ready
+    - lastTransitionTime: '2021-09-02T21:56:45Z'
+      status: 'True'
+      type: ContainersReady
+    - lastTransitionTime: '2021-09-02T21:56:25Z'
+      status: 'True'
+      type: PodScheduled
+  containerStatuses:
+    - containerID: >-
+        docker://fc6871f6fe3ad64edba188c2acf7c27eeda1db8643da1acfc6f7d7c3127b3135
+      image: 'ghcr.io/nirmata/nginx:latest'
+      imageID: >-
+        docker-pullable://ghcr.io/nirmata/nginx@sha256:99d0a53e3718cef59443558607d1e100b325d6a2b678cd2a48b05e5e22ffeb49
+      lastState: {}
+      name: nginx3
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: '2021-09-02T21:56:45Z'
+  hostIP: 10.10.1.224
+  phase: Running
+  podIP: 10.244.1.7
+  podIPs:
+    - ip: 10.244.1.7
+  qosClass: BestEffort
+  startTime: '2021-09-02T21:56:25Z'
